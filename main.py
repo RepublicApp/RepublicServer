@@ -40,7 +40,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.out.write('<html>\n<body>\n')
         self.response.out.write('<div style="width:100%;">\n')
 
-        images = Image.gql('')      # Get all Image objects from the data store
+        images = Image.gql('ORDER BY date DESC')      # Get all Image objects from the data store
         for image in images:
             self.response.out.write('<img src="image?id=%s"/>' % image.key())
         self.response.out.write('</div>\n')
